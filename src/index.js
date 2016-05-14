@@ -31,7 +31,7 @@ export default class {
 
   async authorize() {
     let auth_key = passwordHash.hashPassword(`${this.app_secret}Firekylin`);
-    let result = await promiseRequestGet(`${url}/admin/post_push?app_key=${this.app_key}&auth_key=${auth_key}`)
+    let result = await promiseRequestGet(`${this.url}/admin/post_push?app_key=${this.app_key}&auth_key=${auth_key}`)
                   .catch(err => console.log(err));
     return result;
   }
@@ -42,8 +42,9 @@ export default class {
         return `缺少 post.${key}`;
       }
     }
+    post.app_key = this.app_key;
     post.auth_key = passwordHash.hashPassword(`${this.app_secret}${post.markdown_content}`);
-    let result = await promiseRequestPost({url: `${url}/admin/post_push`, form: post})
+    let result = await promiseRequestPost({url: `${this.url}/admin/post_push`, form: post})
                         .catch(err => console.log(err));
     return result;
   }
