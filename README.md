@@ -18,11 +18,10 @@ p2fk.authorize().then(function(result) {
 
 //发布文章的时候直接调用 push 接口
 var post = {
-  status: 3,
   title: 'Hello World!',
   pathname: 'hello-world',
   markdown_content: '## 你好世界',
-}
+};
 p2fk.push(post).then(function(result) {
   console.log( !result.errno ? '推送成功' : result.errmsg );
 });
