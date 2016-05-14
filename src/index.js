@@ -22,7 +22,7 @@ let promiseRequestGet = function(url) {
   });
 }
 
-export default class {
+class push2Firekylin {
   constructor(url, app_key, app_secret) {
     this.url = url;
     this.app_key = app_key;
@@ -49,3 +49,4 @@ export default class {
     return result;
   }
 }
+module.exports = push2Firekylin;
