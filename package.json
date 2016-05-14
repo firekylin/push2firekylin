@@ -4,7 +4,6 @@
   "description": "a package that easy push to firekylin ",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
     "compile": "babel src -d lib"
   },
   "repository": {
