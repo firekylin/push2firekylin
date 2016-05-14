@@ -1,6 +1,6 @@
 {
   "name": "push-to-firekylin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a package that easy push to firekylin ",
   "main": "lib/index.js",
   "scripts": {
