@@ -1,10 +1,9 @@
 {
   "name": "push-to-firekylin",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "a package that easy push to firekylin ",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lizheming/push2firekylin.git"
