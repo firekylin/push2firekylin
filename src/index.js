@@ -29,7 +29,7 @@ export default class {
     this.app_secret = app_secret;
   }
 
-  async apply() {
+  async authorize() {
     let auth_key = this.auth_generator('Firekylin');
     let result = await promiseRequestGet(`${url}/admin/post_push?app_key=${this.app_key}&auth_key=${auth_key}`)
                   .catch(err => console.log(err));
