@@ -31,12 +31,12 @@ function push2Firekylin(url, app_key, app_secret) {
 
 push2Firekylin.prototype.authorize = function() {
   var auth_key = passwordHash.hashPassword(this.app_secret + 'Firekylin');
-  return req.get(this.url + '/admin/post_push?app_key=' + this.app_key + '&auth_key=' + auth_key ).catch(function(err) { console.log(err); });
+  return req.get(this.url + '/admin/post_push?app_key=' + this.app_key + '&auth_key=' + auth_key );
 }
 
 push2Firekylin.prototype.push = function(post) {
   if(!post.title || !post.pathname || !post.markdown_content ) {
-    return 'title, pathname, markdown_content 三字段必须完整';
+    return Promise.reject('title, pathname, markdown_content 三字段必须完整');
   }
   if( !post.status ) {
     post.status = 3;
@@ -44,6 +44,6 @@ push2Firekylin.prototype.push = function(post) {
   
   post.app_key = this.app_key;
   post.auth_key = passwordHash.hashPassword(this.app_secret + post.markdown_content);
-  return req.post({url: this.url + '/admin/post_push', form: post}).catch(function(err) { console.log(err); });
+  return req.post({url: this.url + '/admin/post_push', form: post});
 }
 module.exports = push2Firekylin;
